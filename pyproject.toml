@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "scraipe-cyber"
-version = "0.1.0"
+version = "0.1.1"
 description = "Scraipe scrapers for cyber research."
 readme = "README.md"
 license = "MIT"
@@ -18,4 +18,4 @@ pytest-asyncio = "*"
 pytest-cov = "*"
 pytest-mock = "*"
 aioresponses = "*"
-dotenv
+dotenv = "*"

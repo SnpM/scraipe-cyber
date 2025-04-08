@@ -64,7 +64,9 @@ class CertUaScraper(IAsyncScraper):
         except Exception as e:
             return ScrapeResult.fail(f"Failed to get article data: {e}")
         else:
-            content:str = article_data.text
+            content:str = article_data.text                
             metadata = article_data._asdict()
             del metadata["text"]
+            if content is None:
+                return ScrapeResult.fail(link, "Failed to retrieve content")
             return ScrapeResult.succeed(link, content, metadata=metadata)            
