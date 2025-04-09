@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "scraipe-cyber"
-version = "0.1.1"
+version = "0.1.2"
 description = "Scraipe scrapers for cyber research."
 readme = "README.md"
 license = "MIT"

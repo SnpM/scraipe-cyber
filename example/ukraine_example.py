@@ -6,8 +6,8 @@ from scraipe import Workflow
 import os
 import dotenv
 
-# Initialize the TelegramMessageScraper with credentials from environment variables
-# Configure and run `source ukraine_example_secrets.env` to set up the environment variables
+# NOTE: a template `secrets.env.template` file is provided that should be renamed to `secrets.env`
+# Configure and run `source secrets.env` to load credentials from environment variables
 dotenv.load_dotenv()
 try:
     api_id = os.getenv("TELEGRAM_API_ID")
@@ -15,6 +15,7 @@ try:
     phone_number = os.getenv("TELEGRAM_PHONE_NUMBER")
 except KeyError as e:
     raise ValueError(f"Missing environment variable for live test: {e}")
+
 # Create an instance of TelegramMessageScraper with the loaded credentials
 # This may prompt your telegram account for a login code in the console
 telegram_message_scraper = TelegramMessageScraper(
