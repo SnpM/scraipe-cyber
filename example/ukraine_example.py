@@ -10,7 +10,6 @@ import dotenv
 # Configure and run `source ukraine_example_secrets.env` to set up the environment variables
 dotenv.load_dotenv()
 try:
-    name = os.getenv("TELEGRAM_NAME")
     api_id = os.getenv("TELEGRAM_API_ID")
     api_hash = os.getenv("TELEGRAM_API_HASH")
     phone_number = os.getenv("TELEGRAM_PHONE_NUMBER")
@@ -19,10 +18,10 @@ except KeyError as e:
 # Create an instance of TelegramMessageScraper with the loaded credentials
 # This may prompt your telegram account for a login code in the console
 telegram_message_scraper = TelegramMessageScraper(
-    name=name,
     api_id=api_id,
     api_hash=api_hash,
-    phone_number=phone_number
+    phone_number=phone_number,
+    session_name="ukraine_example_session",
 )
 
 # Initialize the scraper and analyzer
@@ -34,6 +33,8 @@ workflow = Workflow(scraper, analyzer)
 
 # List urls to scrape
 urls = [
+    "https://t.me/TelegramTips/12345678",
+    "https://t.me/random_name_1234/567",
     "https://t.me/TelegramTips/516",
     "https://cert.gov.ua/article/6282069",
     "https://apnews.com/article/dire-wolf-colossal-biosciences-de-extinction-56d6c192c5d968731b448081aa4149fe"
@@ -44,5 +45,5 @@ workflow.scrape(urls)
 workflow.analyze()
 
 # Print the results
-results = workflow.export()
+results = workflow.export(verbose=True)
 print(results)
