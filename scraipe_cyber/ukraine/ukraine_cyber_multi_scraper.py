@@ -17,12 +17,15 @@ class UkraineCyberMultiScraper(MultiScraper):
         # Define the ingress rules for the scraper
         ingress_rules = [
             # Cert-UA article scraper 
-            IngressRule.from_scraper(CertUaScraper()),
+            IngressRule.from_scraper(CertUaScraper(),exclusive=True),
             # Telegram message scrapers
-            IngressRule.from_scraper(telegram_message_scraper) if telegram_message_scraper else None,
+            IngressRule.from_scraper(telegram_message_scraper,exclusive=True) if telegram_message_scraper else None,
+            # Fallback to NewsScraper
+            IngressRule.from_scraper(TextScraper()),
             # Fallback to TextScraper
             IngressRule.from_scraper(TextScraper()),
         ]
+        print(ingress_rules)
         
         super().__init__(
             ingress_rules=ingress_rules,
