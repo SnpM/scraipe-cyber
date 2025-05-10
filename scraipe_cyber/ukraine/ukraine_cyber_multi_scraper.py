@@ -45,7 +45,6 @@ class UkraineCyberMultiScraper(MultiScraper):
             # Fallback to TextScraper
             IngressRule.from_scraper(TextScraper()),
         ]
-        print(ingress_rules)
         
         super().__init__(
             ingress_rules=ingress_rules,
