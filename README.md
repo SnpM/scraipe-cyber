@@ -19,6 +19,8 @@ ukraine_scraper = UkraineCyberMultiScraper(telegram_message_scraper=telegram_scr
 
 ukraine_scraper can be plugged into a [Scraipe workflow](UkraineCyberMultiScraper).
 
+See [ukraine_europoc_research.ipynb](./example/ukraine_europoc_research.ipynb) for a use case with LLM location extraction.
+
 ## Contributing
 
 Contributions are welcome. Please open an issue or submit a pull request for improvements.
