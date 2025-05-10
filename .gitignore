@@ -178,3 +178,5 @@ poetry.lock
 # pyrogram session file
 *.session
 *secrets.env
+*.session.txt
+*.session.txt.lock

@@ -3,7 +3,7 @@
 [![versions](https://img.shields.io/pypi/pyversions/scraipe-cyber.svg)](https://github.com/SnpM/scraipe-cyber)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/SnpM/scraipe-cyber/blob/main/LICENSE)
 
-Scraipe scrapers for cyber research.
+Scraipe scrapers for cyber research. Features UkraineCyberMultiScraper which orchestrates news article, Cert UA API, and Telegram scraping.
 
 ## Installation
 
@@ -12,9 +12,13 @@ Ensure you have Python>=3.10 installed. Run `pip install scraipe-cyber`.
 ## Example Usage
 
 ```python
-# TODO
+# Configure a TelegramMessageScraper to use within a UkraineCyberMultiScraper
+telegram_scraper = TelegramMessageScraper(telegram_api_id, telegram_api_hash, telegram_phone_number, session_name="my_session")
+ukraine_scraper = UkraineCyberMultiScraper(telegram_message_scraper=telegram_scraper)
 ```
-   
+
+ukraine_scraper can be plugged into a [Scraipe workflow](UkraineCyberMultiScraper).
+
 ## Contributing
 
 Contributions are welcome. Please open an issue or submit a pull request for improvements.
